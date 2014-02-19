@@ -3,8 +3,12 @@
     <head>
         <title>@Page.Title</title>
         @RenderSection("head", required: false)
+        <link rel="stylesheet" href="/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     </head>
     <body>
+        @RenderPage("header.cshtml")
         @RenderBody()
+        @RenderPage("footer.cshtml")
     </body>
 </html>
