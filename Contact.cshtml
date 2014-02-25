@@ -1,3 +1,21 @@
 ﻿@{
     Layout = "~/_Layout.cshtml";
 }
+
+
+
+<html> 
+<body> 
+    <div id="container">
+    <form action="/EnviarCorreo.cshtml" method="post">
+        
+        <input type="text" name="name" placeholder="Name" /> <br />
+        <input type="text" name="email" placeholder="Email Address" /><br />
+        <input type="text" name="subject" placeholder="Subject" /><br />
+        <textarea name="message" placeholder="Message" ></textarea> <br />
+
+        <input type="submit" name="Enviar" value="Enviar" />
+    </form>
+    </div>
+</body> 
+</html>

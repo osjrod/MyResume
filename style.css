@@ -210,10 +210,10 @@ nav ul li div input[type=text]:focus{
 }
 
 /* TO STYLE PLACE HOLDER */
-::-webkit-input-placeholder {
+#search::-webkit-input-placeholder {
    color: #fff;
 }
-:-moz-placeholder {  
+#search:-moz-placeholder {  
    color: #fff;   
 }
 
