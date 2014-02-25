@@ -1,0 +1,16 @@
+﻿@{
+    if (IsPost)
+    {
+        var name = Request["name"];
+        var email = Request["email"];
+        var tel = Request["tel"];
+        var comment = Request["comment"];
+
+        var insertQuery = "INSERT INTO recommendations(name, email, tel, comment) VALUES('" + name + "', '" + email + "','" + tel + "','" + comment + "')";
+
+        var db = Database.Open("data");
+        db.Execute(insertQuery);
+
+        Response.Redirect("/Recommend");
+    }
+}

@@ -6,30 +6,17 @@
         var subject = Request["subject"];
         var message = Request["message"];
 
-        var body = "<h1> Notificacion de Contacto </h1> <p>Usted a recibido un mensaje de "+name+".</p><p>"+message+"</p>";
+        var body = "<html> <h1> Notificacion de Contacto </h1> <p>Usted a recibido un mensaje de "+name+".</p><p>"+message+"</p> </html>";
 
-
-        //Creamos un nuevo Objeto de Mensaje
+        
         System.Net.Mail.MailMessage oMsg = new System.Net.Mail.MailMessage();
-        //Desde (correo electronico desde la que enviamos)
         oMsg.From = new System.Net.Mail.MailAddress("osjrod@gmail.com");
-        //Hasta (direccion de correo electronico a la que queremos enviar)
-        oMsg.To.Add("osjrod@hotmail.com");
-        //Copia Carbon (direccion de correo electronico que queremos que reciba una copia)
-        oMsg.Bcc.Add("osjrod@outlook.com");
-        //Asunto
+        oMsg.To.Add("osjrod@outlook.com");
         oMsg.Subject = subject;
-        //Cuerpo del Mensaje
         oMsg.Body = body;
-        //Creamos una instancia de cliente SMTP para el envio del mensaje
-        //Nombre del servidor SMTP de envio.
-        //Normalmente es “mail.[tu dominio]”
         System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
-        //Como nuestro servidor requiere autenticación, tenemos que especificar las credenciales
-        //Para ello tenemos que autenticarnos con nuestra cuenta de correo y contraseña
         smtp.Credentials = new System.Net.NetworkCredential("osjrod@gmail.com",
-        "jrodSmA8383");
-        //Y Enviamos el mensaje!!!   
+        "jrodSmA8383");  
         smtp.EnableSsl = true;  
         smtp.Send(oMsg);
         
