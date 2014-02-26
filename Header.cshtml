@@ -2,27 +2,28 @@
     
 }
 
-<div id="header-wrap">
-		<header class="group">
-			<h2><a href="/" title="MyResume">MyResume</a></h2>
-			<div id="proyecto">
-				<h3>1° Proyecto</h3>
-				<h4 class="green">Programación web 2</h4>
-			</div><!-- end proyecto -->
-			<nav class="group">
-				<ul>
-					<li class="home"><a href="/" title="">Home</a></li>
-					<li><a href="contact.cshtml" title="">Contact</a></li>
-					<li><a href="recommend.cshtml" title="">Recommend</a></li>
-					<li class="last">
-						<div>
-							<input id="search" type="text" name="search" placeholder="search" />
-							<input type="submit" name="search" value="go" class="search"/>
-						</div>
-					</li>
-				</ul>
-			</nav>
-		</header>
-	</div><!-- end header wrap -->
-
-
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">MyResume</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/Contact.cshtml">Contact</a></li>
+          <li><a href="/recommend.cshtml">Recommend</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">LogIn</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>

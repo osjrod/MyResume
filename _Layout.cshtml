@@ -3,12 +3,19 @@
     <head>
         <title>@Page.Title</title>
         @RenderSection("head", required: false)
+        <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+
+        <script src="/Scripts/jquery-2.1.0.min.js"></script>
+        <script src="/Scripts/bootstrap.min.js"></script>
     </head>
     <body>
-        @RenderPage("header.cshtml")
-        @RenderBody()
-        @RenderPage("footer.cshtml")
+            @RenderPage("header.cshtml")
+            <div class="container" id="principal">
+                @RenderBody()
+            </div>
+            @RenderPage("footer.cshtml")
+        
     </body>
 </html>
