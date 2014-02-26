@@ -5,33 +5,91 @@
 @{
     var db = Database.Open("data"); 
     var selectQueryString = "SELECT * FROM recommendations where active = 1";
-
-
 }
 <html> 
 <body>
-    <div id="container"> 
-<h1>recommendations</h1> 
 
 
-@foreach(var row in db.Query(selectQueryString))
-{
-    <p>@row.name</p>
-    <p>@row.email</p>
-    <p>@row.tel</p>
-    <p>@row.comment</p>
-}
- 
-        <form action="/InsertarRecomendacion.cshtml" method="post">
-        
-        <input type="text" name="name" placeholder="Name" /> <br />
-        <input type="text" name="email" placeholder="Email Address" /><br />
-        <input type="text" name="tel" placeholder="Telephone Number" /><br />
-        <textarea name="comment" placeholder="Comment" ></textarea> <br />
 
-        <input type="submit" name="Enviar" value="Enviar" />
-    </form>
+    
 
+<div class="jumbotron jumbotron-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <h1 class="h1">
+                    Recommend
+
+                </h1>
+            </div>
+        </div>
     </div>
-</body> 
-</html>
+</div>
+
+<div class="container" id="reco">
+    <div class="row">
+        <div class="col-md-6">
+            
+    <ul class="timeline">
+        @foreach(var row in db.Query(selectQueryString))
+        {
+        <li>
+          <div class="timeline-badge info"><i class="glyphicon "></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">@row.name</h4>
+              <p><small class="text-muted"><i class="glyphicon"></i> @row.email</small></p>
+              <p><small class="text-muted"><i class="glyphicon"></i> @row.tel</small></p>
+            </div>
+            <div class="timeline-body">
+              <p> @row.comment</p>
+            </div>
+          </div>
+        </li>
+        }
+        
+    </ul>
+
+
+        </div>
+        <div class="col-md-6">
+            <div class="well well-sm">
+                <form action="InsertarRecomendacion.cshtml" method="post">
+                <legend> Write a recommendation</legend>
+                    <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="name">
+                                Name</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter name" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required="required" />
+                        </div>
+                       <div class="form-group">
+                            <label for="tel">
+                                Phone</label>
+                            <input type="text" class="form-control" name="tel" id="tel" placeholder="Telephone number" required="required" />
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label for="comment">
+                                Comment</label>
+                            <textarea name="comment" id="comment" class="form-control" rows="9" cols="25" required="required"
+                                placeholder="Comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            Send Message</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
