@@ -6,11 +6,6 @@
     var db = Database.Open("data"); 
     var selectQueryString = "SELECT * FROM recommendations where active = 1";
 }
-<html> 
-<body>
-
-
-
     
 
 <div class="jumbotron jumbotron-sm">
@@ -18,7 +13,7 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <h1 class="h1">
-                    Recommend
+                    Recommend me
 
                 </h1>
             </div>
@@ -38,8 +33,7 @@
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">@row.name</h4>
-              <p><small class="text-muted"><i class="glyphicon"></i> @row.email</small></p>
-              <p><small class="text-muted"><i class="glyphicon"></i> @row.tel</small></p>
+              <p><small class="text-muted"><i class="glyphicon"></i>@row.email <br /> @row.tel </small></p>
             </div>
             <div class="timeline-body">
               <p> @row.comment</p>
@@ -84,7 +78,7 @@
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
-                            Send Message</button>
+                            Send Recommendation</button>
                     </div>
                 </div>
                 </form>
