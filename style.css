@@ -208,3 +208,27 @@ margin-top: 90px;
 .jumbotron {
     background-image: url(/Img/Abstract_blue_background7.jpg);
 }
+
+body.modal-open #wrap{
+    -webkit-filter: blur(7px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+}
+  
+.modal-backdrop {background: #f7f7f7;}
+
+
+#log{
+    background: url(http://mymaplist.com/img/parallax/back.png);
+	background-color: #444;
+    background: url(http://mymaplist.com/img/parallax/pinlayer2.png),url(http://mymaplist.com/img/parallax/pinlayer1.png),url(http://mymaplist.com/img/parallax/back.png);    
+    margin-top:200px;
+    border-radius: 10px;
+}
+
+.vertical-offset-100{
+    padding-top:100px;
+    padding-bottom:100px;
+}
