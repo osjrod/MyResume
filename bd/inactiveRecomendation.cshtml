@@ -1,0 +1,14 @@
+﻿@{
+    if (IsPost)
+    {
+        var id = Request["id"];
+
+        var query = "update recommendations set active = 0 where id = " + id + ";";
+
+        var db = Database.Open("data");
+        db.Execute(query);
+
+    }
+
+    Response.Redirect("/Admin");
+}
