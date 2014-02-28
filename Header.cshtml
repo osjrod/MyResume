@@ -14,7 +14,7 @@
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/">Home</a></li>
+          <li @{if(true){@Html.Raw("class='active'")}}><a href="/">Home</a></li>
           <li><a href="/Contact.cshtml">Contact</a></li>
           <li><a href="/Recommend.cshtml">Recommend</a></li>
             @{

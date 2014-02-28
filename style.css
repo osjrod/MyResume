@@ -213,7 +213,6 @@ body.modal-open #wrap{
     -webkit-filter: blur(7px);
     -moz-filter: blur(15px);
     -o-filter: blur(15px);
-    -ms-filter: blur(15px);
     filter: blur(15px);
 }
   
@@ -244,3 +243,8 @@ body { padding-top:30px; }
 .widget .action { margin-top:5px; }
 .widget .comment-text { font-size: 12px; }
 .widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
+
+.lineal {
+    float:left;
+    margin-right: 4px;
+}

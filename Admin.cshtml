@@ -7,6 +7,17 @@
     var selectQueryString = "SELECT * FROM recommendations";
 }
 
+ @{
+        try{
+        if ((bool)@Session["logged"] == false){
+            Response.Redirect("/");
+        }
+        }
+        catch{
+            Response.Redirect("/");
+        }
+}
+
 
 <div class="jumbotron jumbotron-sm">
     <div class="container">
@@ -50,19 +61,19 @@
                                                 <p>@row.comment</p>
                                             </div>
                                             <div class="action">
-                                                    <form action="/bd/activeRecomendation.cshtml" method="post">
+                                                    <form class="lineal" action="/bd/activeRecomendation.cshtml" method="post">
                                                         <input name="id" type="hidden" value="@row.id" />
-                                                        <button type="submit" class="btn btn-success btn-xs" id="active" title="Active">
+                                                        <button type="submit" class="btn btn-success btn-xs" id="active" title="Active" @{if(row.active == 1){@Html.Raw("disabled")}}>
                                                             <span class="glyphicon glyphicon-ok"></span>
                                                         </button>
                                                     </form>
-                                                <form action="/bd/inactiveRecomendation.cshtml" method="post">
+                                                <form class="lineal" action="/bd/inactiveRecomendation.cshtml" method="post">
                                                         <input name="id" type="hidden" value="@row.id" />
-                                                <button type="submit" class="btn btn-warning btn-xs" id="inactive" title="Inactive">
+                                                <button type="submit" class="btn btn-warning btn-xs" id="inactive" title="Inactive" @{if(row.active == 0){@Html.Raw("disabled")}}>
                                                     <span class="glyphicon glyphicon-remove"></span>
                                                 </button>
                                                     </form>
-                                                 <form action="/bd/deleteRecomendation.cshtml" method="post">
+                                                 <form class="lineal" action="/bd/deleteRecomendation.cshtml" method="post">
                                                         <input name="id" type="hidden" value="@row.id" />
                                                 <button type="submit" class="btn btn-danger btn-xs" id="delete" title="Delete">
                                                     <span class="glyphicon glyphicon-trash"></span>
@@ -73,9 +84,11 @@
                                     </div>
                                 </li>
                             } 
+                    </ul>
             </div>
         </div>
     </div>
 </div>
+
 
 
