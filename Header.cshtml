@@ -16,9 +16,30 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Home</a></li>
           <li><a href="/Contact.cshtml">Contact</a></li>
-          <li><a href="/recommend.cshtml">Recommend</a></li>
+          <li><a href="/Recommend.cshtml">Recommend</a></li>
+            @{
+                try{
+                if ((bool)@Session["logged"] == true){
+                    <li><a href="Admin.cshtml">Administrar</a></li>
+                }
+                }
+                catch{
+                }
+            }
+    
+           
             </ul>
           <ul class="nav navbar-nav navbar-right">
+              @{
+                try{
+                if ((bool)@Session["logged"] == true){
+                    <li><a href="Logout.cshtml">Logout</a></li>
+                }
+                }
+                catch{
+                }
+            }
+
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
             <ul class="dropdown-menu">

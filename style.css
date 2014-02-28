@@ -221,9 +221,9 @@ body.modal-open #wrap{
 
 
 #log{
-    background: url(http://mymaplist.com/img/parallax/back.png);
+    background: url(/Img/back.png);
 	background-color: #444;
-    background: url(http://mymaplist.com/img/parallax/pinlayer2.png),url(http://mymaplist.com/img/parallax/pinlayer1.png),url(http://mymaplist.com/img/parallax/back.png);    
+    background: url(/Img/lang2.png),url(/Img/lang1.png),url(/Img/back.png);    
     margin-top:200px;
     border-radius: 10px;
 }
