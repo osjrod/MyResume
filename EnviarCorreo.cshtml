@@ -1,4 +1,6 @@
 ﻿@{
+    RenderPage("Conecction.cshtml");
+    
     if (IsPost)
     {
         var name = Request["name"];
@@ -14,11 +16,16 @@
         oMsg.To.Add("osjrod@outlook.com");
         oMsg.Subject = subject;
         oMsg.Body = body;
+        oMsg.IsBodyHtml = true;
         System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
         smtp.Credentials = new System.Net.NetworkCredential("osjrod@gmail.com",
         "jrodSmA8383");  
         smtp.EnableSsl = true;  
         smtp.Send(oMsg);
+
+        Response.Redirect("/Contact?encor=true");
         
     }
+
+    Response.Redirect("/Contact");
 }

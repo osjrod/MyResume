@@ -11,6 +11,7 @@
         var db = Database.Open("data");
         db.Execute(insertQuery);
 
-        Response.Redirect("/Recommend");
+        Response.Redirect("/Recommend?encor=true");
     }
+    Response.Redirect("/Recommend");
 }
