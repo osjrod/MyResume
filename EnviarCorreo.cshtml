@@ -1,6 +1,6 @@
 ﻿@{
     RenderPage("Conecction.cshtml");
-    
+
     if (IsPost)
     {
         var name = Request["name"];
@@ -8,23 +8,23 @@
         var subject = Request["subject"];
         var message = Request["message"];
 
-        var body = "<html> <h1> Notificacion de Contacto </h1> <p>Usted a recibido un mensaje de "+name+".</p><p>"+message+"</p> </html>";
+        var body = "<h1> Hola Oscar.</h1> <h2>" + name + " quiere contactarte.</h2><p>Este es su mensaje: " + message + "</p>";
 
-        
-        System.Net.Mail.MailMessage oMsg = new System.Net.Mail.MailMessage();
-        oMsg.From = new System.Net.Mail.MailAddress("osjrod@gmail.com");
-        oMsg.To.Add("osjrod@outlook.com");
-        oMsg.Subject = subject;
-        oMsg.Body = body;
-        oMsg.IsBodyHtml = true;
+
+        System.Net.Mail.MailMessage webMail = new System.Net.Mail.MailMessage();
+        webMail.From = new System.Net.Mail.MailAddress("osjrod@gmail.com");
+        webMail.To.Add("osjrod@outlook.com");
+        webMail.Subject = subject;
+        webMail.Body = body;
+        webMail.IsBodyHtml = true;
         System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
         smtp.Credentials = new System.Net.NetworkCredential("osjrod@gmail.com",
-        "jrodSmA8383");  
-        smtp.EnableSsl = true;  
-        smtp.Send(oMsg);
+        "jrodSmA8383");
+        smtp.EnableSsl = true;
+        smtp.Send(webMail);
 
         Response.Redirect("/Contact?encor=true");
-        
+
     }
 
     Response.Redirect("/Contact");

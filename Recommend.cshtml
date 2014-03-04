@@ -4,17 +4,16 @@
 }
 
 @{
-    var db = Database.Open("data"); 
+    var db = Database.Open("data");
     var selectQueryString = "SELECT * FROM recommendations where active = 1";
 }
-    
+
 
 <div class="jumbotron jumbotron-sm">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-lg-12">
-                <h1 class="h1">
-                    Recommend me
+                <h1 class="h1">Recommend me
 
                 </h1>
             </div>
@@ -25,81 +24,87 @@
 <div class="container" id="reco">
     <div class="row">
         <div class="col-md-6">
-            
-    <ul class="timeline">
-        @foreach(var row in db.Query(selectQueryString))
-        {
-        <li>
-          <div class="timeline-badge info"><i class="glyphicon "></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">@row.name</h4>
-              <p><small class="text-muted"><i class="glyphicon"></i>@row.email <br /> @row.tel </small></p>
-            </div>
-            <div class="timeline-body">
-              <p> @row.comment</p>
-            </div>
-          </div>
-        </li>
-        }
-        
-    </ul>
+
+            <ul class="timeline">
+                @foreach (var row in db.Query(selectQueryString))
+                {
+                    <li>
+                        <div class="timeline-badge info"><i class="glyphicon glyphicon-comment"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title"><span class="glyphicon glyphicon-user"></span> @row.name</h4>
+                                <p>
+                                    <small class="text-muted"><i class="glyphicon glyphicon-envelope"></i> @row.email
+                                        <br />
+                                        <i class="glyphicon glyphicon-phone-alt"></i> @row.tel </small>
+                                </p>
+                            </div>
+                            <div class="timeline-body">
+                                <p><span class="glyphicon glyphicon-comment"></span> @row.comment</p>
+                            </div>
+                        </div>
+                    </li>
+                }
+
+            </ul>
 
 
         </div>
         <div class="col-md-6">
             <div class="well well-sm">
                 <form action="InsertarRecomendacion.cshtml" method="post">
-                <legend> Write a recommendation</legend>
+                    <legend>Write a recommendation</legend>
                     <div class="row">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label for="name">
-                                Name</label>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter name" required="required" />
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="name">
+                                    Name</label>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter name" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">
+                                    Email</label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <label for="tel">
+                                    Phone</label>
+                                <input type="text" class="form-control" name="tel" id="tel" placeholder="Telephone number" required="required" />
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">
-                                Email</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required="required" />
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="comment">
+                                    Comment</label>
+                                <textarea name="comment" id="comment" class="form-control" rows="9" cols="25" required="required"
+                                    placeholder="Comment"></textarea>
+                            </div>
                         </div>
-                       <div class="form-group">
-                            <label for="tel">
-                                Phone</label>
-                            <input type="text" class="form-control" name="tel" id="tel" placeholder="Telephone number" required="required" />
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                                Send Recommendation</button>
                         </div>
                     </div>
-                    <div class="col-md-7">
-                        <div class="form-group">
-                            <label for="comment">
-                                Comment</label>
-                            <textarea name="comment" id="comment" class="form-control" rows="9" cols="25" required="required"
-                                placeholder="Comment"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
-                            Send Recommendation</button>
-                    </div>
-                </div>
 
                 </form>
             </div>
             @{
     
-var encor = Request["encor"];
+                var encor = Request["encor"];
 
-if(encor == "true"){
-            <div class="alert alert-success">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                    ×</button>
-               <span class="glyphicon glyphicon-ok"></span> <strong>Recommendation Sent</strong>
-                <hr class="message-inner-separator">
-                <p>
-                    Your recommendation was sent successfully.</p>
-            </div>         
-}
-}
+                if (encor == "true")
+                {
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        ×</button>
+                    <span class="glyphicon glyphicon-ok"></span><strong> Recommendation Sent</strong>
+                    <hr class="message-inner-separator">
+                    <p>
+                        Your recommendation was sent successfully.
+                    </p>
+                </div>         
+                }
+            }
         </div>
     </div>
 </div>

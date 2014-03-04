@@ -4,16 +4,18 @@
         var user = Request["user"];
         var password = Request["password"];
 
-        var query = "select id from Users where username = '"+user+"' and password = '"+password+"';";
+        var query = "select id from Users where username = '" + user + "' and password = '" + password + "';";
 
         var db = Database.Open("data");
         var res = db.Query(query);
-        
-        if (res.Count() > 0){
+
+        if (res.Count() > 0)
+        {
             Session["logged"] = true;
-            Response.Redirect("/");
+            Response.Redirect("/Admin");
         }
-        else{
+        else
+        {
             Response.Redirect("/");
         }
     }
