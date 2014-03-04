@@ -1,5 +1,5 @@
 ﻿@{
-    RenderPage("Conecction.cshtml");
+    
 
     if (IsPost)
     {
@@ -8,20 +8,22 @@
         var subject = Request["subject"];
         var message = Request["message"];
 
-        var body = "<h1> Hola Oscar.</h1> <h2>" + name + " quiere contactarte.</h2><p>Este es su mensaje: " + message + "</p>";
+        var body = "<h1> Hola Oscar.</h1> <h2>" + name + " quiere contactarte.</h2><p>Este es su mensaje: " + message + "</p> <p>Su correo es: "+email+"</p>";
 
 
-        System.Net.Mail.MailMessage webMail = new System.Net.Mail.MailMessage();
-        webMail.From = new System.Net.Mail.MailAddress("osjrod@gmail.com");
-        webMail.To.Add("osjrod@outlook.com");
-        webMail.Subject = subject;
-        webMail.Body = body;
-        webMail.IsBodyHtml = true;
-        System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
-        smtp.Credentials = new System.Net.NetworkCredential("osjrod@gmail.com",
-        "jrodSmA8383");
-        smtp.EnableSsl = true;
-        smtp.Send(webMail);
+        WebMail.SmtpServer = "smtp.gmail.com";
+
+        WebMail.EnableSsl = true;
+
+        WebMail.UserName = "osjrod@gmail.com";
+
+        WebMail.Password = "jrodSmA8383";
+
+        WebMail.From = "osjrod@gmail.com";
+
+        WebMail.Send(to: "osjrod@outlook.com",
+                             subject: subject,
+                             body: body);
 
         Response.Redirect("/Contact?encor=true");
 
